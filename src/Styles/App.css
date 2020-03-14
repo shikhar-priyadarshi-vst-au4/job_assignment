@@ -1,0 +1,97 @@
+.navbar{
+  box-shadow: 0px 1px 1px 2px #00000057 !important;
+  
+}
+
+.board{
+  display: flex;
+  overflow-x: auto;
+  height: calc(100vh - 7.6rem)
+}
+
+.board_list, .board_input_key , .board_key{
+ margin: 0 1em 0 1em;
+}
+.board_key{
+  width: 238px !important;
+}
+.board_list{
+  display:flex;
+}
+.board_slateboard_key{
+  width: max-content !important;
+  margin-right: 2em !important;
+  padding: 0.5em 2em 0.5em 2em !important;
+  
+}
+.form-control{
+  width: 500px !important;
+}
+.del{
+  font-size: 2rem;
+  font-weight: 900;
+  margin: 0 0 0 0.5em;
+  cursor: pointer;
+}
+.del:hover{
+  color: #343a408a!important;
+}
+.ul{
+  width: max-content !important;
+}
+.board_list_card_body{
+ width: max-content; 
+ list-style: none !important;
+ border: 2px solid #00000057;
+ margin: 0em 0.5em;
+ padding: 2em; 
+ border-radius: 5px;
+}
+
+
+.board_list_card_body_child{
+  font-size: 1.2rem;
+  font-weight: 500;
+  font-family: sans-serif;
+  letter-spacing: 2px;
+  border-bottom: 1px solid #495057;
+}
+
+.task_card_list_add, .task_card_list_label{
+  padding: 0.5em 1em;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  color:#495057!important;
+  font-family: sans-serif;
+  border: 0.5px solid #495057;
+  cursor: pointer;
+}
+.task_card_list_add{
+  margin: 10px 2px 0 0;
+}
+.task_card_list_label{
+  margin: 10px 0 0 2px;
+}
+
+.task_card_list{
+  display: flex;
+  justify-content: center !important;
+  padding: 0% !important;
+  
+}
+.task_card_list_label:hover{
+  box-shadow: 0px 1px 1px 2px #00000057 !important;
+}
+.task_card_list_add:hover{
+  box-shadow: 0px 1px 1px 2px #00000057 !important;
+}
+
+.EditTask{
+  position: absolute !important;
+  z-index: 1 !important;
+    
+}
+
+/*.BLUR{
+  background: #495057;
+}*/
