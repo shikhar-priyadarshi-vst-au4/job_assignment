@@ -1,10 +1,8 @@
-import React, { Fragment } from 'react';
-import { Row, Col, Button, Card } from 'react-bootstrap';
+import React from 'react';
 import { TaskListItem } from '../Components/TaskListItem';
 export const ListItem = ( Props ) => {
-    console.log('ListItem' , Props);
+    
     return (
-
         <div className = "board_list_elem" >
             <div className = "board_list_card">
                 <ul className = "board_list_card_body" >
@@ -13,7 +11,7 @@ export const ListItem = ( Props ) => {
                 </ul>
             </div>
             </div>
-                  
+                   
         
     )
 }

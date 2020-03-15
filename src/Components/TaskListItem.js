@@ -5,19 +5,39 @@ import { Card } from 'react-bootstrap';
 import { Input } from './Input';
 import { Key } from './Button';
 export const TaskListItem = ( Props ) => {
-     console.log(Props);
-
+    let labels = ['Completed','Pending','Active','Priority']; 
     return(
         <Fragment>
            { Props.task.length>0 && Props.task.map(val=>(val.listId===Props.list._id)?< Card key={val._id} >
-            <Card.Body >
+            <Card.Body>
                <small><b>{val.labelName}</b></small><br/>  
                 <div className="d-flex justify-content-between">
                 <div>{val.taskName}</div>
-                <div onClick={( )=>Props.EditInput( )}><FontAwesomeIcon icon={faEdit}/></div>
+                <div ><FontAwesomeIcon icon={faEdit}
+                 onClick={( )=>Props.EditInput( val._id )}/></div>
                 </div>
-                 {Props.editCardInput && <Input for={'EditTask'}
-                                                ChangeHandler = {Props.ChangeHandler} />}
+                 {Props.editCardInput && Props.cardTaskID === val._id && <div className="EditTask d-flex justify-content-start"> 
+                                           <div>
+                                           { Props.emptyField && <div className="d-flex flex-column">
+                                                <small className = {'errorField'} >
+                                                        Field is empty</small>
+                                                <small className = {'error'} ></small>
+                                                
+                                                </div> }
+                    
+                                           <Input for={'EditTask'}
+                                                 ChangeHandler = {Props.ChangeHandler} />
+                                                 <Key for={'EditTask'}
+                                                    editTask  = { Props.editTask } />
+                                           </div>
+                                           <div>
+                                               <ul className="list">
+                                                 {labels.map((value, index)=> <li key={value} className="listItems"
+                                                 onClick = {()=> Props.assignLabelToTask( val._id, value ) }>
+                                                     {value}</li>)} 
+                                               </ul>
+                                           </div>
+                                                 </div> }
                 
             </Card.Body>
         </Card> : "" ) }

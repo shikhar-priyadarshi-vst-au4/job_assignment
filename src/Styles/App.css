@@ -6,7 +6,7 @@
 .board{
   display: flex;
   overflow-x: auto;
-  height: calc(100vh - 7.6rem)
+  height: calc(100vh - 7.6rem);
 }
 
 .board_list, .board_input_key , .board_key{
@@ -22,7 +22,7 @@
   width: max-content !important;
   margin-right: 2em !important;
   padding: 0.5em 2em 0.5em 2em !important;
-  
+  font-family: sans-serif;
 }
 .form-control{
   width: 500px !important;
@@ -89,9 +89,78 @@
 .EditTask{
   position: absolute !important;
   z-index: 1 !important;
-    
+  background: #ffffff;
 }
-
+.input_edit_task{
+  border: 1px solid #495057;
+}
 /*.BLUR{
   background: #495057;
 }*/
+
+ul{
+  list-style: none;
+}
+
+.listItems{
+  
+  border: 1px solid #495057;
+  padding: 1em;
+  border-radius: 1.8em;
+  margin: 0.5em 0;
+  font-size: 0.8rem;
+  cursor: pointer;
+  color: #495057;
+  text-align: center;
+  letter-spacing: 0.1rem;
+  background: #ffffff; 
+}
+
+.listItems:hover{
+  color: #ffffff;
+  background: #495057;
+}
+
+.error{
+  border-bottom : 0.5em solid red;
+  color : red;
+  padding: 0.1em 19em;
+  margin: 0 0 0.5em 0;
+
+}
+
+.errorField{
+  color : #495057;
+  opacity: 90%;
+  font-family: sans-serif;
+  letter-spacing: 0.1em;
+}
+/*.listItems:nth-child(1){
+  color: green;
+}
+
+.listItems:nth-child(2){
+  color: orangered;
+}
+.listItems:nth-child(3){
+  color: purple;
+}
+
+.listItems:nth-child(1):hover{
+  color: #ffffff;
+  background: green;
+  box-shadow: 0px 0.5px 0.5px 0.5px green !important;
+}
+
+.listItems:nth-child(2):hover{
+  color: #ffffff;
+  background: orangered;
+  box-shadow: 0px 0.5px 0.5px 0.5px orangered !important;
+}
+
+.listItems:nth-child(3):hover{
+  color: #ffffff;
+  background: purple;
+  box-shadow: 0px 0.5px 0.5px 0.5px purple !important;
+}
+*/

@@ -4,7 +4,8 @@ import {
     CREATE_TASK ,
     FETCH_BOARD,
     FETCH_LIST ,
-   // EDIT_TASK ,
+    EDIT_TASK ,
+    ASSIGN_LABEL,
    // ERROR_RESPONSE
 } from '../Action/action';
 
@@ -41,7 +42,24 @@ export const reducer = ( state = initialState, action ) =>{
             case CREATE_TASK:
             stateCopy.tasks=[...stateCopy.tasks, action.payload];  
             return stateCopy;
-
+            
+            case EDIT_TASK :
+             stateCopy.tasks = stateCopy.tasks.map(val => {
+                 if(val._id===action.payload._id){
+                     val.taskName = action.payload.taskName;
+                     console.log(val);
+                 }
+                 return val;
+             });   
+             return stateCopy;
+            case ASSIGN_LABEL :
+                stateCopy.tasks = stateCopy.tasks.map(val => {
+                    if(val._id === action.payload._id){
+                        val.labelName = action.payload.labelName;
+                    }
+                    return val;
+                })
+                return stateCopy;
             default :
              return stateCopy; 
             

@@ -6,6 +6,7 @@ const FETCH_BOARD  =  'FETCH_BOARD';
 const FETCH_LIST   =   'FETCH_LIST';
 
 const EDIT_TASK    =  'EDIT_TASK';
+const ASSIGN_LABEL =  'ASSIGN_LABEL';
 
 const ERROR_RESPONSE = 'ERROR_RESPONSE';
 
@@ -89,12 +90,14 @@ export const createTask =  ( id, taskName ) => {
     }
 }
 
-export const editTask =  ( id ) => {
+export const editTask =  ( id, taskName ) => {
     return async dispatch => {
         try {
-            let task = await fetch (`http://localhost:5000/slate/task/${id}`,options);
+            let task = await fetch (`http://localhost:5000/slate/task/${id}`,
+            { method : 'post', headers : { 'Content-Type' : 'application/json' }, body: JSON.stringify({taskName}) });
             let data = await task.json();
-            return dispatch({ type : EDIT_TASK, paylaod : data })
+            console.log('data.json-->',data);
+            return dispatch({ type : EDIT_TASK, payload : data })
         }
         catch(err){
             return dispatch(errorResponse(err));
@@ -102,11 +105,24 @@ export const editTask =  ( id ) => {
     }
 }
 
+export const assignLabelToTask = ( id, labelName ) => {
+      return async dispatch => {
+           try{
+              let data = await (await fetch( `http://localhost:5000/slate/task/${id}/label/${labelName}` , options )).json();
+              console.log('assignLabelToTask',data);
+              return dispatch ({ type : ASSIGN_LABEL, payload : data });
+           }
+           catch (err){
+            return dispatch(errorResponse(err));
+           }
+      }
+}
+
 export const errorResponse = (err) => {
     return (
         {
             type : ERROR_RESPONSE,
-            paylaod : err.message
+            payload : err.message
         }
     )
 }
@@ -133,5 +149,6 @@ export  {
     FETCH_BOARD,
     FETCH_LIST ,
     EDIT_TASK ,
+    ASSIGN_LABEL,
     ERROR_RESPONSE
 }
